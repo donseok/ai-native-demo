@@ -1052,40 +1052,169 @@
         <div class="section-header">
             <div class="section-icon chrome">🌐</div>
             <h2>클로드 인 크롬</h2>
-            <p>Chrome 브라우저에서 Claude AI를 활용하여 웹 기반 업무를 자동화합니다.</p>
+            <p>Chrome 브라우저에서 Claude AI를 활용하여 시황 리서치 및 웹 기반 업무를 자동화합니다.</p>
         </div>
 
-        <div class="prompt-card open">
-            <div class="prompt-card-header" onclick="toggleCard(this)">
-                <div class="prompt-card-header-left">
-                    <div class="prompt-step">1</div>
-                    <div>
-                        <div class="prompt-card-title">시연 프롬프트</div>
-                        <div class="prompt-card-subtitle">크롬 브라우저 자동화</div>
+        <div class="comparison-banner">
+            <span class="comparison-banner-icon">⚡</span>
+            <span class="comparison-banner-text">같은 요청을 <strong>사람이 작성한 프롬프트</strong>와 <strong>AI가 리팩토링한 프롬프트</strong>로 비교해보세요.</span>
+        </div>
+
+        <!-- Version Toggle -->
+        <div class="version-toggle">
+            <button class="version-btn active" onclick="switchVersion('demo3', 'v1', this)">
+                <span class="version-badge human">V1</span>
+                사람이 작성한 프롬프트
+            </button>
+            <button class="version-btn" onclick="switchVersion('demo3', 'v2', this)">
+                <span class="version-badge ai">V2</span>
+                AI가 리팩토링한 프롬프트
+            </button>
+        </div>
+
+        <!-- Version 1: 사람이 작성한 프롬프트 -->
+        <div class="version-content active" id="demo3-v1">
+            <div class="prompt-card open">
+                <div class="prompt-card-header" onclick="toggleCard(this)">
+                    <div class="prompt-card-header-left">
+                        <div class="prompt-step">1</div>
+                        <div>
+                            <div class="prompt-card-title">사람이 작성한 프롬프트</div>
+                            <div class="prompt-card-subtitle">직관적이고 간결한 자연어 요청</div>
+                        </div>
+                    </div>
+                    <div class="prompt-toggle">▼</div>
+                </div>
+                <div class="prompt-card-body">
+                    <div class="prompt-description">
+                        💡 일반 사용자가 자연스럽게 작성하는 방식의 프롬프트입니다. 핵심 요구사항을 간결하게 전달합니다.
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-box-label">프롬프트</div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            복사
+                        </button>
+                        <div class="prompt-text"><span class="prompt-section-title">#작업</span>
+오늘 봉형강 시황 브리핑 만들어줘.
+철근 SD400 유통시세, H형강·앵글·찬넬 시세, 철스크랩 경량A 가격, 중국 철근 선물 동향 확인해줘
+수집한 내용을 정리해서 doc 파일 만들어줘.
+
+<span class="prompt-section-title">#레퍼런스</span>
+스틸1번가 — 철근, H형강, ㄱ형강, ㄷ형강 소매가 시세
+철강정보원 — 봉형강 시황 기사, 중국 철근 선물 동향
+한국물가정보 — 이형철근, 형강류 공시가격</div>
+                    </div>
+                    <div class="prompt-note">
+                        <span class="note-icon">📌</span>
+                        <span>시연 포인트: 간결한 프롬프트로도 Claude가 의도를 파악하고 웹에서 시세 정보를 수집·정리하는 과정을 보여주세요.</span>
                     </div>
                 </div>
-                <div class="prompt-toggle">▼</div>
             </div>
-            <div class="prompt-card-body">
-                <div class="prompt-description">
-                    💡 Chrome 브라우저에서 해당 웹 페이지를 미리 열어두세요.
-                </div>
-                <div class="prompt-box">
-                    <div class="prompt-box-label">프롬프트</div>
-                    <button class="copy-btn" onclick="copyPrompt(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        복사
-                    </button>
-                    <div class="prompt-text">시연 프롬프트를 여기에 입력하세요.
+        </div>
 
-(실제 시연에서 사용할 프롬프트 내용을 추가해주세요)</div>
+        <!-- Version 2: AI가 리팩토링한 프롬프트 -->
+        <div class="version-content" id="demo3-v2">
+            <div class="prompt-card open">
+                <div class="prompt-card-header" onclick="toggleCard(this)">
+                    <div class="prompt-card-header-left">
+                        <div class="prompt-step">1</div>
+                        <div>
+                            <div class="prompt-card-title">AI가 리팩토링한 프롬프트</div>
+                            <div class="prompt-card-subtitle">구조화된 프롬프트 엔지니어링 적용</div>
+                        </div>
+                    </div>
+                    <div class="prompt-toggle">▼</div>
                 </div>
-                <div class="prompt-note">
-                    <span class="note-icon">📌</span>
-                    <span>시연 포인트: Claude가 웹 페이지를 실시간으로 탐색하고 정보를 추출하는 과정을 보여주세요.</span>
+                <div class="prompt-card-body">
+                    <div class="prompt-description">
+                        💡 동일한 요청을 AI가 프롬프트 엔지니어링 기법으로 재구성한 버전입니다. 더 정확하고 일관된 결과를 기대할 수 있습니다.
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-box-label">프롬프트</div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            복사
+                        </button>
+                        <div class="prompt-text"><span class="prompt-section-title"># Role (역할 정의)</span>
+너는 철강 유통업체의 시황 리서치 애널리스트야. 매일 아침 영업팀에 배포할 봉형강 시황 브리핑을 작성하는 것이 주요 업무다.
+
+<span class="prompt-section-title"># Context (배경)</span>
+- 봉형강(철근·H형강·앵글·찬넬) 유통시세는 매일 변동되며, 영업팀은 이 브리핑을 기반으로 고객 견적과 재고 의사결정을 내린다.
+- 철스크랩 가격과 중국 철근 선물은 국내 시세의 선행 지표로 함께 모니터링해야 한다.
+- 오늘 날짜 기준 최신 데이터를 수집·정리한다.
+
+<span class="prompt-section-title"># Task (작업 지시)</span>
+
+<span style="color:#F59E0B;font-weight:600;">## 1단계: 데이터 수집 (Web Research)</span>
+아래 항목의 오늘자 시세 및 동향을 웹에서 수집하라.
+- 철근 SD400 유통시세 (톤당 소매가)
+- H형강·앵글(ㄱ형강)·찬넬(ㄷ형강) 유통시세
+- 철스크랩 경량A 가격
+- 중국 철근 선물(상해선물거래소) 동향
+
+<span style="color:#F59E0B;font-weight:600;">## 2단계: 브리핑 문서 작성</span>
+수집한 데이터를 시세 요약 → 전일 대비 변동 → 시장 전망 순서로 정리하라.
+최종 결과물을 Word(.docx) 파일로 생성하라.</div>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label">레퍼런스 (참고 소스)</div>
+                        <table class="prompt-table">
+                            <thead>
+                                <tr>
+                                    <th>소스</th>
+                                    <th>수집 대상</th>
+                                    <th>URL 키워드</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>스틸1번가</td>
+                                    <td>철근·H형강·ㄱ형강·ㄷ형강 소매가</td>
+                                    <td>steel1st.com</td>
+                                </tr>
+                                <tr>
+                                    <td>철강정보원</td>
+                                    <td>봉형강 시황 기사, 중국 철근 선물</td>
+                                    <td>kasti.or.kr</td>
+                                </tr>
+                                <tr>
+                                    <td>한국물가정보</td>
+                                    <td>이형철근·형강류 공시가격</td>
+                                    <td>kpi.or.kr</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label" style="display:none;">작성 형식</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># 작성 형식</span>
+- <strong style="color:#60A5FA;">파일</strong>: Word(.docx)
+- <strong style="color:#60A5FA;">구성</strong>:
+  1. 제목 — "봉형강 시황 브리핑 (YYYY-MM-DD)"
+  2. 시세 요약표 — 품목 / 규격 / 금일 시세 / 전일 대비 / 단위
+  3. 주요 변동 포인트 — 3~5문장 내외 서술
+  4. 중국 동향 — 상해선물 철근 종가·등락 요약
+  5. 시장 전망 — 향후 1주 방향성 코멘트
+- <strong style="color:#60A5FA;">톤</strong>: 간결한 보고체 (경어 불필요, 개조식 허용)
+- <strong style="color:#60A5FA;">분량</strong>: A4 1장 이내
+
+※ 위 소스에서 데이터를 찾을 수 없는 경우, 출처를 명시한 대체 소스를 사용할 것.</div>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label" style="display:none;">Output (산출물)</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># Output (산출물)</span>
+- 최종 산출물: .docx 파일 1개
+- 파일명 예시: 봉형강_시황브리핑_YYYYMMDD.docx</div>
+                    </div>
+                    <div class="prompt-note" style="margin-top: 12px;">
+                        <span class="note-icon">📌</span>
+                        <span>시연 포인트: 구조화된 프롬프트가 어떻게 더 정밀한 결과물을 만들어내는지 V1과 비교하여 보여주세요.</span>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Demo 4: 문서 자동화 -->
