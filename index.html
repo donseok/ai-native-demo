@@ -1414,23 +1414,99 @@
         <div class="section-header">
             <div class="section-icon agent">🤖</div>
             <h2>에이전트팀 구성</h2>
-            <p>여러 AI 에이전트를 팀으로 구성하여 복합적인 업무를 수행합니다.</p>
+            <p>AI 에이전트 5명을 팀으로 구성하여 철강 제품 고객 클레임에 체계적으로 대응합니다.</p>
         </div>
 
+        <!-- 팀 구성 시각 자료 -->
+        <div style="background: var(--dk-white); border-radius: 16px; padding: 28px 24px; margin-bottom: 20px; box-shadow: var(--shadow-md); border: 1px solid var(--dk-border);">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span style="display: inline-block; background: linear-gradient(135deg, var(--dk-navy), var(--dk-navy-dark)); color: white; padding: 6px 18px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">🏗️ 고객클레임 대응팀</span>
+            </div>
+
+            <!-- 팀장 (중앙 상단) -->
+            <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+                <div style="text-align: center; background: linear-gradient(135deg, #1a1a2e, #16213e); border: 2px solid var(--dk-red); border-radius: 16px; padding: 16px 24px; min-width: 220px; box-shadow: 0 4px 16px rgba(230, 0, 18, 0.15);">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--dk-red), var(--dk-red-dark)); display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 18px;">👨‍💼</span>
+                        </div>
+                        <div style="text-align: left;">
+                            <div style="color: white; font-weight: 700; font-size: 15px;">강도현 <span style="font-size: 11px; opacity: 0.6;">팀장</span></div>
+                            <div style="color: rgba(255,255,255,0.5); font-size: 10px;">pane 0 (중앙)</div>
+                        </div>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 11px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">전체 진도 관리 · 작업 지시 · 최종 검토</div>
+                </div>
+            </div>
+
+            <!-- 연결선 표현 -->
+            <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+                <svg width="400" height="30" viewBox="0 0 400 30" fill="none" style="max-width: 100%;">
+                    <path d="M200 0V10" stroke="var(--dk-navy)" stroke-width="2"/>
+                    <path d="M50 10H350" stroke="var(--dk-navy)" stroke-width="2"/>
+                    <path d="M50 10V30M162 10V30M238 10V30M350 10V30" stroke="var(--dk-navy)" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <!-- 팀원 4명 -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                <!-- 팀원 1: 박서연 -->
+                <div style="background: linear-gradient(135deg, #EEF2FF, #F5F3FF); border: 1.5px solid #818CF8; border-radius: 12px; padding: 14px 12px; text-align: center;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #6366F1; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span style="font-size: 16px;">👩‍🔬</span>
+                    </div>
+                    <div style="font-weight: 700; color: #312E81; font-size: 13px;">박서연</div>
+                    <div style="color: #6366F1; font-size: 10px; font-weight: 600; margin: 2px 0 6px;">팀원 1 · pane 1</div>
+                    <div style="font-size: 10px; color: #4B5563; line-height: 1.5; background: white; border-radius: 6px; padding: 6px 8px;">원인 분석 보고서<br><span style="color: #999;">(내부용)</span></div>
+                </div>
+
+                <!-- 팀원 2: 이준혁 -->
+                <div style="background: linear-gradient(135deg, #ECFDF5, #F0FDF4); border: 1.5px solid #34D399; border-radius: 12px; padding: 14px 12px; text-align: center;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span style="font-size: 16px;">👨‍💻</span>
+                    </div>
+                    <div style="font-weight: 700; color: #064E3B; font-size: 13px;">이준혁</div>
+                    <div style="color: #22C55E; font-size: 10px; font-weight: 600; margin: 2px 0 6px;">팀원 2 · pane 2</div>
+                    <div style="font-size: 10px; color: #4B5563; line-height: 1.5; background: white; border-radius: 6px; padding: 6px 8px;">8D Report<br><span style="color: #999;">(고객 제출용)</span></div>
+                </div>
+
+                <!-- 팀원 3: 김하은 -->
+                <div style="background: linear-gradient(135deg, #FFF7ED, #FFFBEB); border: 1.5px solid #FBBF24; border-radius: 12px; padding: 14px 12px; text-align: center;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span style="font-size: 16px;">👩‍📝</span>
+                    </div>
+                    <div style="font-weight: 700; color: #78350F; font-size: 13px;">김하은</div>
+                    <div style="color: #D97706; font-size: 10px; font-weight: 600; margin: 2px 0 6px;">팀원 3 · pane 3</div>
+                    <div style="font-size: 10px; color: #4B5563; line-height: 1.5; background: white; border-radius: 6px; padding: 6px 8px;">고객 회신 공문<br><span style="color: #999;">(대외용)</span></div>
+                </div>
+
+                <!-- 팀원 4: 정민수 -->
+                <div style="background: linear-gradient(135deg, #FFF1F2, #FFE4E6); border: 1.5px solid #FB7185; border-radius: 12px; padding: 14px 12px; text-align: center;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #EF4444; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span style="font-size: 16px;">👨‍🔍</span>
+                    </div>
+                    <div style="font-weight: 700; color: #881337; font-size: 13px;">정민수</div>
+                    <div style="color: #EF4444; font-size: 10px; font-weight: 600; margin: 2px 0 6px;">팀원 4 · pane 4</div>
+                    <div style="font-size: 10px; color: #4B5563; line-height: 1.5; background: white; border-radius: 6px; padding: 6px 8px;">데이터 수집/분석<br><span style="color: #999;">과거 사례 검색</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 시연 프롬프트 -->
         <div class="prompt-card open">
             <div class="prompt-card-header" onclick="toggleCard(this)">
                 <div class="prompt-card-header-left">
                     <div class="prompt-step">1</div>
                     <div>
                         <div class="prompt-card-title">시연 프롬프트</div>
-                        <div class="prompt-card-subtitle">에이전트팀 생성 및 실행</div>
+                        <div class="prompt-card-subtitle">고객클레임 대응팀 생성 및 실행</div>
                     </div>
                 </div>
                 <div class="prompt-toggle">▼</div>
             </div>
             <div class="prompt-card-body">
                 <div class="prompt-description">
-                    💡 에이전트팀 구성 도구를 미리 실행해두세요.
+                    💡 터미널(tmux)에서 에이전트팀 실행 도구를 미리 준비해두세요. 각 에이전트가 별도 pane에서 동시에 작업합니다.
                 </div>
                 <div class="prompt-box">
                     <div class="prompt-box-label">프롬프트</div>
@@ -1438,13 +1514,34 @@
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                         복사
                     </button>
-                    <div class="prompt-text">시연 프롬프트를 여기에 입력하세요.
+                    <div class="prompt-text"><span class="prompt-section-title"># 🏗️ 철강 제품 고객 클레임 대응 에이전트 팀 구성</span>
 
-(실제 시연에서 사용할 프롬프트 내용을 추가해주세요)</div>
+<span class="prompt-section-title"># 팀 구성 (총 5명: 팀장 1명 + 팀원 4명)</span>
+각 팀원은 각각의 분할창(pane)을 가진다.
+
+<strong style="color:#E63312;">팀장 — 강도현 (남)</strong>
+· 담당: 전체 진도 관리, 작업 지시, 최종 검토
+· tmux pane 0 (중앙)
+
+<strong style="color:#6366F1;">팀원 1 — 박서연 (여)</strong>
+· 담당: 원인 분석 보고서 (내부용)
+· tmux pane 1
+
+<strong style="color:#22C55E;">팀원 2 — 이준혁 (남)</strong>
+· 담당: 8D Report (고객 제출용)
+· tmux pane 2
+
+<strong style="color:#D97706;">팀원 3 — 김하은 (여)</strong>
+· 담당: 고객 회신 공문 (대외용)
+· tmux pane 3
+
+<strong style="color:#EF4444;">팀원 4 — 정민수 (남)</strong>
+· 담당: 데이터 수집/분석 지원, 과거 사례 검색
+· tmux pane 4</div>
                 </div>
                 <div class="prompt-note">
                     <span class="note-icon">📌</span>
-                    <span>시연 포인트: 여러 에이전트가 협업하여 복잡한 업무를 처리하는 과정을 보여주세요.</span>
+                    <span>시연 포인트: 팀장이 작업을 지시하면 4명의 팀원 에이전트가 각자의 tmux pane에서 동시에 문서를 작성하는 협업 과정을 보여주세요.</span>
                 </div>
             </div>
         </div>
