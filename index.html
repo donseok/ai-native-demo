@@ -48,7 +48,7 @@
         .hero {
             background: linear-gradient(135deg, var(--dk-navy) 0%, var(--dk-navy-dark) 50%, #001a40 100%);
             color: var(--dk-white);
-            padding: 30px 40px 24px;
+            padding: 14px 40px 12px;
             position: relative;
             overflow: hidden;
         }
@@ -86,19 +86,19 @@
             display: inline-block;
             background: rgba(230, 0, 18, 0.9);
             color: white;
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 28px;
             font-weight: 900;
-            margin-bottom: 12px;
+            margin-bottom: 4px;
             letter-spacing: -1px;
         }
 
@@ -110,16 +110,16 @@
         }
 
         .hero p {
-            font-size: 18px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.7;
             font-weight: 300;
             max-width: 600px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 32px;
+            margin-top: 10px;
         }
 
         .hero-stat {
@@ -127,15 +127,15 @@
         }
 
         .hero-stat-number {
-            font-size: 32px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--dk-white);
         }
 
         .hero-stat-label {
-            font-size: 13px;
+            font-size: 11px;
             opacity: 0.6;
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         /* Navigation */
@@ -155,8 +155,8 @@
         }
 
         .demo-nav-item {
-            padding: 16px 24px;
-            font-size: 14px;
+            padding: 10px 20px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--dk-gray);
             cursor: pointer;
@@ -202,7 +202,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px;
-            padding-top: 280px;
+            padding-top: 180px;
         }
 
         /* Demo Section */
@@ -492,8 +492,8 @@
 
         .prompt-section-title {
             font-size: 13px;
-            font-weight: 600;
-            color: var(--dk-navy);
+            font-weight: 700;
+            color: #93C5FD;
             margin: 16px 0 8px;
             display: flex;
             align-items: center;
@@ -601,20 +601,6 @@
         <div class="hero-badge">SF4.0</div>
         <h1><span>AI Native</span> 시연 가이드</h1>
         <p>업무 환경에 자연스럽게 녹아드는 AI, 실제 시연을 통해 경험해보세요.</p>
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <div class="hero-stat-number">5</div>
-                <div class="hero-stat-label">시연 시나리오</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-number">Claude</div>
-                <div class="hero-stat-label">AI Engine</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-number">Native</div>
-                <div class="hero-stat-label">업무 통합</div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -846,8 +832,9 @@
                         </table>
                     </div>
                     <div class="prompt-box" style="margin-top: 16px;">
-                        <div class="prompt-box-label">작성 기준</div>
-                        <div class="prompt-text">- <strong style="color:#60A5FA;">언어</strong>: 한국어 본문 + 영어 병기 (주요 용어, 차트 레이블 등)
+                        <div class="prompt-box-label" style="display:none;">작성 기준</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># 작성 기준</span>
+- <strong style="color:#60A5FA;">언어</strong>: 한국어 본문 + 영어 병기 (주요 용어, 차트 레이블 등)
 - <strong style="color:#60A5FA;">톤</strong>: 경영진 의사결정용 — 핵심 메시지 중심, 장황한 서술 배제
 - <strong style="color:#60A5FA;">디자인</strong>: 동국제강 그룹 CI 기반
   · Primary Color: 동국제강 블루 (#003A78) / Accent: (#E63312)
@@ -855,8 +842,9 @@
   · 깔끔한 도표·차트 활용, 슬라이드당 핵심 메시지 1개 원칙</div>
                     </div>
                     <div class="prompt-box" style="margin-top: 16px;">
-                        <div class="prompt-box-label">Output (산출물)</div>
-                        <div class="prompt-text">- 최종 산출물: .pptx 파일 1개 (5슬라이드)
+                        <div class="prompt-box-label" style="display:none;">Output (산출물)</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># Output (산출물)</span>
+- 최종 산출물: .pptx 파일 1개 (5슬라이드)
 - 파일명 예시: 미이란전쟁_철근산업영향_임원보고_YYYYMMDD.pptx</div>
                     </div>
                     <div class="prompt-note" style="margin-top: 12px;">
