@@ -1222,40 +1222,191 @@
         <div class="section-header">
             <div class="section-icon doc">📄</div>
             <h2>문서 자동화</h2>
-            <p>Claude AI를 활용하여 업무 문서를 자동으로 생성하고 관리합니다.</p>
+            <p>고객 요구사항 하나로 PRD · TRD · WBS 문서를 한 번에 자동 생성합니다.</p>
         </div>
 
+        <!-- 시각 자료: 자동화 흐름도 -->
+        <div style="background: var(--dk-white); border-radius: 16px; padding: 32px 24px; margin-bottom: 20px; box-shadow: var(--shadow-md); border: 1px solid var(--dk-border);">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <span style="display: inline-block; background: linear-gradient(135deg, var(--dk-navy), var(--dk-navy-dark)); color: white; padding: 6px 18px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">DOCUMENT AUTOMATION FLOW</span>
+            </div>
+
+            <!-- 플로우 차트 -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap;">
+                <!-- 입력: 고객 요구사항 (다양한 파일 형식) -->
+                <div style="text-align: center; flex-shrink: 0;">
+                    <div style="width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #FF6B35, #F7931E); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 10px; box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3); position: relative;">
+                        <!-- 파일 형식 아이콘들 (원 주변에 배치) -->
+                        <span style="position: absolute; top: -4px; left: 8px; background: #1D6F42; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.xls</span>
+                        <span style="position: absolute; top: -4px; right: 6px; background: #2B579A; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.doc</span>
+                        <span style="position: absolute; bottom: 18px; left: -8px; background: #D24726; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.ppt</span>
+                        <span style="position: absolute; bottom: 18px; right: -10px; background: #6366F1; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.img</span>
+                        <span style="position: absolute; top: 22px; left: -6px; background: #666; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.txt</span>
+                        <span style="position: absolute; top: 22px; right: -8px; background: #0F9D58; color: white; font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">.csv</span>
+                        <span style="font-size: 32px;">📁</span>
+                        <span style="color: white; font-size: 11px; font-weight: 700; margin-top: 4px;">INPUT</span>
+                    </div>
+                    <div style="font-weight: 700; color: var(--dk-gray); font-size: 13px;">고객 요구사항</div>
+                    <div style="color: #999; font-size: 11px; margin-top: 2px;">다양한 형식의 문서</div>
+                </div>
+
+                <!-- 화살표 1 -->
+                <div style="display: flex; flex-direction: column; align-items: center; padding: 0 8px; flex-shrink: 0;">
+                    <svg width="60" height="24" viewBox="0 0 60 24" fill="none"><path d="M0 12H52M52 12L44 4M52 12L44 20" stroke="var(--dk-navy)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span style="font-size: 10px; color: var(--dk-navy); font-weight: 600; margin-top: 2px;">AI 분석</span>
+                </div>
+
+                <!-- 중앙: PRD Generator -->
+                <div style="text-align: center; flex-shrink: 0;">
+                    <div style="width: 130px; height: 130px; border-radius: 20px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 10px; box-shadow: 0 8px 24px rgba(26, 26, 46, 0.4); position: relative; border: 2px solid rgba(99, 102, 241, 0.4);">
+                        <div style="position: absolute; top: -6px; right: -6px; width: 28px; height: 28px; background: linear-gradient(135deg, #6366F1, #8B5CF6); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);">
+                            <span style="font-size: 12px; color: white;">⚡</span>
+                        </div>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="margin-bottom: 4px;">
+                            <rect x="8" y="4" width="24" height="32" rx="3" stroke="#6366F1" stroke-width="2" fill="rgba(99,102,241,0.15)"/>
+                            <path d="M13 12h14M13 17h14M13 22h10" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M13 28h6" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="30" cy="28" r="6" fill="#6366F1"/>
+                            <path d="M28 28h4M30 26v4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span style="color: white; font-size: 11px; font-weight: 700; letter-spacing: -0.3px;">PRD Generator</span>
+                        <span style="color: rgba(165, 148, 249, 0.8); font-size: 9px;">AI 문서 자동화</span>
+                    </div>
+                </div>
+
+                <!-- 화살표 2 -->
+                <div style="display: flex; flex-direction: column; align-items: center; padding: 0 8px; flex-shrink: 0;">
+                    <svg width="60" height="24" viewBox="0 0 60 24" fill="none"><path d="M0 12H52M52 12L44 4M52 12L44 20" stroke="var(--dk-navy)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span style="font-size: 10px; color: var(--dk-navy); font-weight: 600; margin-top: 2px;">자동 생성</span>
+                </div>
+
+                <!-- 출력: 3개 문서 -->
+                <div style="display: flex; flex-direction: column; gap: 10px; flex-shrink: 0;">
+                    <div style="display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #E8F4FD, #F0F7FF); border: 2px solid #3B82F6; border-radius: 12px; padding: 10px 16px; min-width: 200px;">
+                        <div style="width: 40px; height: 40px; background: #3B82F6; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="font-size: 20px;">📋</span>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: #1E40AF; font-size: 14px;">PRD</div>
+                            <div style="color: #6B7280; font-size: 10px;">제품 요구사항 정의서</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #F0FDF4, #F0FFF4); border: 2px solid #22C55E; border-radius: 12px; padding: 10px 16px; min-width: 200px;">
+                        <div style="width: 40px; height: 40px; background: #22C55E; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="font-size: 20px;">⚙️</span>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: #166534; font-size: 14px;">TRD</div>
+                            <div style="color: #6B7280; font-size: 10px;">기술 요구사항 정의서</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #FFF7ED, #FFFBF0); border: 2px solid #F59E0B; border-radius: 12px; padding: 10px 16px; min-width: 200px;">
+                        <div style="width: 40px; height: 40px; background: #F59E0B; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="font-size: 20px;">📊</span>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: #92400E; font-size: 14px;">WBS</div>
+                            <div style="color: #6B7280; font-size: 10px;">작업 분류 체계</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 하단 효과 수치 -->
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--dk-border);">
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: var(--dk-navy);">1회</div>
+                    <div style="font-size: 11px; color: #999; margin-top: 2px;">요구사항 입력</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: var(--dk-red);">3종</div>
+                    <div style="font-size: 11px; color: #999; margin-top: 2px;">문서 자동 생성</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: #22C55E;">90%↓</div>
+                    <div style="font-size: 11px; color: #999; margin-top: 2px;">작성 시간 절감</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 고객 요구사항 문서 -->
         <div class="prompt-card open">
             <div class="prompt-card-header" onclick="toggleCard(this)">
                 <div class="prompt-card-header-left">
                     <div class="prompt-step">1</div>
                     <div>
-                        <div class="prompt-card-title">시연 프롬프트</div>
-                        <div class="prompt-card-subtitle">문서 자동 생성</div>
+                        <div class="prompt-card-title">고객 요구사항 (시연용 샘플)</div>
+                        <div class="prompt-card-subtitle">PRD Generator에 입력할 원본 요구사항</div>
                     </div>
                 </div>
                 <div class="prompt-toggle">▼</div>
             </div>
             <div class="prompt-card-body">
                 <div class="prompt-description">
-                    💡 자동화할 문서 템플릿이나 샘플 데이터를 준비해두세요.
+                    💡 아래 고객 요구사항을 PRD Generator에 입력하면 PRD · TRD · WBS 3종 문서가 자동으로 생성됩니다.
                 </div>
                 <div class="prompt-box">
-                    <div class="prompt-box-label">프롬프트</div>
+                    <div class="prompt-box-label">고객 요구사항</div>
                     <button class="copy-btn" onclick="copyPrompt(this)">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                         복사
                     </button>
-                    <div class="prompt-text">시연 프롬프트를 여기에 입력하세요.
+                    <div class="prompt-text">동국제강 포항공장에 철근 재고관리 시스템을 도입하고 싶습니다.
 
-(실제 시연에서 사용할 프롬프트 내용을 추가해주세요)</div>
+현재 엑셀로 관리하고 있는데, 실시간 재고 현황 파악이 어렵고 입출고 이력 추적이 안 됩니다.
+
+바코드 스캔으로 입출고 처리하고, 재고 부족 시 자동 알림이 오는 시스템이 필요합니다.
+
+모바일에서도 조회 가능했으면 좋겠습니다.</div>
                 </div>
-                <div class="prompt-note">
+                <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #E8F4FD, #F0F7FF); border: 1px solid #BFDBFE; border-radius: 10px; padding: 14px 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 16px;">📋</span>
+                            <span style="font-weight: 700; color: #1E40AF; font-size: 13px;">PRD 자동 생성 항목</span>
+                        </div>
+                        <div style="font-size: 11px; color: #4B5563; line-height: 1.7;">
+                            · 프로젝트 개요 및 목적<br>
+                            · 이해관계자 정의<br>
+                            · 기능 요구사항 (FR-001~)<br>
+                            · 비기능 요구사항 (NFR)<br>
+                            · 우선순위 매트릭스
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #F0FDF4, #F0FFF4); border: 1px solid #BBF7D0; border-radius: 10px; padding: 14px 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 16px;">⚙️</span>
+                            <span style="font-weight: 700; color: #166534; font-size: 13px;">TRD 자동 생성 항목</span>
+                        </div>
+                        <div style="font-size: 11px; color: #4B5563; line-height: 1.7;">
+                            · 시스템 아키텍처<br>
+                            · 기술 스택 선정<br>
+                            · API 설계 · DB 스키마<br>
+                            · 보안 요건<br>
+                            · 연동 인터페이스
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #FFF7ED, #FFFBF0); border: 1px solid #FDE68A; border-radius: 10px; padding: 14px 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 16px;">📊</span>
+                            <span style="font-weight: 700; color: #92400E; font-size: 13px;">WBS 자동 생성 항목</span>
+                        </div>
+                        <div style="font-size: 11px; color: #4B5563; line-height: 1.7;">
+                            · 단계별 작업 분해<br>
+                            · 담당자 · 소요 기간(M/D)<br>
+                            · 선후행 관계<br>
+                            · 마일스톤<br>
+                            · 간트차트용 일정
+                        </div>
+                    </div>
+                </div>
+                <div class="prompt-note" style="margin-top: 14px;">
                     <span class="note-icon">📌</span>
-                    <span>시연 포인트: 반복적인 문서 작업이 자동화되어 시간이 절약되는 과정을 보여주세요.</span>
+                    <span>시연 포인트: 고객의 자연어 요구사항 하나로 PRD · TRD · WBS 3종 문서가 한 번에 자동 생성되는 과정을 보여주세요.</span>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Demo 5: 에이전트팀 구성 -->
