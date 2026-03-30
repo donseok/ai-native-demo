@@ -481,6 +481,16 @@
             color: white;
         }
 
+        .version-badge.action {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        .version-btn.active .version-badge.action {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
         .version-content {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -643,37 +653,217 @@
             <p>Excel 환경에서 Claude AI를 활용하여 데이터 분석 및 자동화를 수행합니다.</p>
         </div>
 
-        <div class="prompt-card open">
-            <div class="prompt-card-header" onclick="toggleCard(this)">
-                <div class="prompt-card-header-left">
-                    <div class="prompt-step">1</div>
-                    <div>
-                        <div class="prompt-card-title">시연 프롬프트</div>
-                        <div class="prompt-card-subtitle">엑셀 데이터 분석 요청</div>
-                    </div>
-                </div>
-                <div class="prompt-toggle">▼</div>
-            </div>
-            <div class="prompt-card-body">
-                <div class="prompt-description">
-                    💡 시연 시 엑셀 파일을 먼저 열어둔 상태에서 프롬프트를 입력하세요.
-                </div>
-                <div class="prompt-box">
-                    <div class="prompt-box-label">프롬프트</div>
-                    <button class="copy-btn" onclick="copyPrompt(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        복사
-                    </button>
-                    <div class="prompt-text">시연 프롬프트를 여기에 입력하세요.
+        <div class="comparison-banner">
+            <span class="comparison-banner-icon">⚡</span>
+            <span class="comparison-banner-text">같은 요청을 <strong>사람이 작성한 프롬프트</strong>와 <strong>AI가 리팩토링한 프롬프트</strong>로 비교해보세요.</span>
+        </div>
 
-(실제 시연에서 사용할 프롬프트 내용을 추가해주세요)</div>
+        <!-- Version Toggle -->
+        <div class="version-toggle">
+            <button class="version-btn active" onclick="switchVersion('demo1', 'v1', this)">
+                <span class="version-badge human">V1</span>
+                사람이 작성한 프롬프트
+            </button>
+            <button class="version-btn" onclick="switchVersion('demo1', 'v2', this)">
+                <span class="version-badge ai">V2</span>
+                AI가 리팩토링한 프롬프트
+            </button>
+            <button class="version-btn" onclick="switchVersion('demo1', 'v3', this)">
+                <span class="version-badge action">V3</span>
+                후속 작업 프롬프트
+            </button>
+        </div>
+
+        <!-- Version 1: 사람이 작성한 프롬프트 -->
+        <div class="version-content active" id="demo1-v1">
+            <div class="prompt-card open">
+                <div class="prompt-card-header" onclick="toggleCard(this)">
+                    <div class="prompt-card-header-left">
+                        <div class="prompt-step">1</div>
+                        <div>
+                            <div class="prompt-card-title">사람이 작성한 프롬프트</div>
+                            <div class="prompt-card-subtitle">직관적이고 간결한 자연어 요청</div>
+                        </div>
+                    </div>
+                    <div class="prompt-toggle">▼</div>
                 </div>
-                <div class="prompt-note">
-                    <span class="note-icon">📌</span>
-                    <span>시연 포인트: Claude가 엑셀 데이터를 직접 읽고 분석하는 과정을 보여주세요.</span>
+                <div class="prompt-card-body">
+                    <div class="prompt-description">
+                        💡 일반 사용자가 자연스럽게 작성하는 방식의 프롬프트입니다. 핵심 요구사항을 간결하게 전달합니다.
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-box-label">프롬프트</div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            복사
+                        </button>
+                        <div class="prompt-text"><span class="prompt-section-title"># 역할</span>
+너는 제조업 품질관리 데이터 분석 전문가야. 철강 공장의 생산·품질 데이터를 다루는 데 익숙하고, 현장에서 실제로 쓸 수 있는 형태의 보고서를 만들 수 있어.
+
+<span class="prompt-section-title"># 맥락</span>
+동국제강 포항공장에서 판매하는 제품별 불량 현황을 파악하려고 해. 2024년과 2025년의 월별 추이를 비교해서, 품질 개선 여부를 확인하고 경영진에게 보고할 자료가 필요해.
+
+<span class="prompt-section-title"># 작업</span>
+* 동국제강 포항공장의 주요 판매 제품(형강, 철근, 평강, 환봉 등)에 대해 2024년~2025년 월별 불량 현황 데이터를 조사해줘.
+* 웹에서 실제 데이터를 찾을 수 없는 경우, 철강업계 현실에 맞는 가상 데이터를 생성해줘.
+* 이 데이터를 엑셀 파일(.xlsx)로 만들어줘.
+
+<span class="prompt-section-title"># 출력 형식</span>
+* 시트 구성: 연도별 시트(2024년, 2025년) + 요약 시트
+* 항목: 제품명 / 월(1~12월) / 생산량(톤) / 불량수량(톤) / 불량률(%)
+* 수식: 불량률, 합계, 평균 등은 하드코딩 없이 Excel 수식으로 자동 계산
+* 서식: 헤더 색상 구분, 천 단위 쉼표, 소수점 2자리 불량률, 제품별 행 구분이 명확할 것
+* 2025년: 현재 시점 기준 3월까지만 데이터를 채우고, 4월 이후는 빈칸으로 남겨 추후 입력 가능하게 할 것
+
+<span class="prompt-section-title"># 제약 조건</span>
+* 파일 하나로 완결되어야 하며, 별도 매크로 없이 일반 엑셀에서 바로 열 수 있어야 해.
+* 불량률은 제품별로 0.5%~5% 사이의 현실적인 범위로 설정해줘.</div>
+                    </div>
+                    <div class="prompt-note">
+                        <span class="note-icon">📌</span>
+                        <span>시연 포인트: 간결한 프롬프트로도 Claude가 의도를 파악하고 엑셀 파일을 생성하는 과정을 보여주세요.</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Version 2: AI가 리팩토링한 프롬프트 -->
+        <div class="version-content" id="demo1-v2">
+            <div class="prompt-card open">
+                <div class="prompt-card-header" onclick="toggleCard(this)">
+                    <div class="prompt-card-header-left">
+                        <div class="prompt-step">1</div>
+                        <div>
+                            <div class="prompt-card-title">AI가 리팩토링한 프롬프트</div>
+                            <div class="prompt-card-subtitle">구조화된 프롬프트 엔지니어링 적용</div>
+                        </div>
+                    </div>
+                    <div class="prompt-toggle">▼</div>
+                </div>
+                <div class="prompt-card-body">
+                    <div class="prompt-description">
+                        💡 동일한 요청을 AI가 프롬프트 엔지니어링 기법으로 재구성한 버전입니다. 더 정확하고 일관된 결과를 기대할 수 있습니다.
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-box-label">프롬프트</div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            복사
+                        </button>
+                        <div class="prompt-text"><span class="prompt-section-title"># Role (역할 정의)</span>
+당신은 다음 두 분야의 최고 전문가입니다.
+1. 제조업 품질관리(QC/QA) 데이터 분석 전문가 — 철강 공장 생산·품질 지표 설계 및 리포팅 경력 15년+
+2. Excel 데이터 모델링 전문가 — 제조 현장에서 즉시 활용 가능한 운영 보고서 설계에 정통
+
+<span class="prompt-section-title"># Context (배경)</span>
+- 동국제강 포항공장에서 판매하는 주요 제품의 품질 현황을 경영진에게 보고해야 함
+- 2024년 실적과 2025년(1~3월) 실적을 월별로 비교하여 품질 개선 추이를 확인하는 것이 목적
+- 실제 데이터가 웹에 공개되어 있지 않으므로, 철강업계 현실에 부합하는 가상 데이터를 생성할 것
+
+<span class="prompt-section-title"># Task (작업 지시)</span>
+
+<span style="color:#F59E0B;font-weight:600;">## 1단계: 데이터 설계</span>
+아래 대상 제품에 대해 월별 품질 데이터를 설계하시오.
+- <strong style="color:#60A5FA;">대상 제품</strong>: 형강(Section Steel), 철근(Rebar), 평강(Flat Bar), 환봉(Round Bar)
+- <strong style="color:#60A5FA;">데이터 항목</strong>: 제품명 / 월(1~12월) / 생산량(톤) / 불량수량(톤) / 불량률(%)
+- <strong style="color:#60A5FA;">불량률 범위</strong>: 제품별 0.5%~5% (철강업계 현실 반영)
+- <strong style="color:#60A5FA;">데이터 특성</strong>: 계절적 변동, 설비 정비 주기, 제품별 난이도 차이를 반영한 현실적 패턴
+
+<span style="color:#F59E0B;font-weight:600;">## 2단계: Excel 파일 작성</span>
+설계한 데이터를 .xlsx 파일로 작성하시오.</div>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label">시트 구성</div>
+                        <table class="prompt-table">
+                            <thead>
+                                <tr>
+                                    <th>시트</th>
+                                    <th>구성</th>
+                                    <th>내용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2024년</td>
+                                    <td>제품별 월간 생산량·불량수량·불량률 (1~12월 전체)</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2025년</td>
+                                    <td>제품별 월간 데이터 (1~3월 입력, 4~12월 빈칸 — 추후 입력용)</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>요약(Summary)</td>
+                                    <td>연도별·제품별 합계, 평균 불량률, YoY 비교 지표</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label" style="display:none;">서식 기준</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># 서식 기준 (Formatting)</span>
+- <strong style="color:#60A5FA;">헤더</strong>: 동국제강 CI 컬러(#003A78) 배경, 흰색 텍스트, 굵게
+- <strong style="color:#60A5FA;">숫자</strong>: 생산량·불량수량은 천 단위 쉼표(#,##0), 불량률은 소수점 2자리(0.00%)
+- <strong style="color:#60A5FA;">수식</strong>: 불량률 = 불량수량 ÷ 생산량 × 100 (하드코딩 금지, Excel 수식으로 자동 계산)
+- <strong style="color:#60A5FA;">합계·평균</strong>: SUM / AVERAGE 함수 사용, 연간 합계 행 포함
+- <strong style="color:#60A5FA;">구분</strong>: 제품별 행 그룹에 교대 배경색 적용, 테두리로 명확히 구분</div>
+                    </div>
+                    <div class="prompt-box" style="margin-top: 16px;">
+                        <div class="prompt-box-label" style="display:none;">Output (산출물)</div>
+                        <div class="prompt-text"><span class="prompt-section-title"># Output (산출물)</span>
+- 최종 산출물: .xlsx 파일 1개 (3개 시트)
+- 파일명 예시: 포항공장_제품별불량현황_2024-2025_YYYYMMDD.xlsx
+
+<span class="prompt-section-title"># Constraints (제약 조건)</span>
+- 파일 하나로 완결, 별도 매크로(VBA) 없이 일반 Excel에서 바로 열 수 있을 것
+- 2025년 시트는 4월 이후 빈칸으로 두어 현장에서 직접 데이터 추가 입력 가능하게 할 것
+- 요약 시트의 모든 지표는 원본 시트를 참조하는 수식으로 구성 (하드코딩 금지)</div>
+                    </div>
+                    <div class="prompt-note" style="margin-top: 12px;">
+                        <span class="note-icon">📌</span>
+                        <span>시연 포인트: 구조화된 프롬프트가 어떻게 더 정밀한 결과물을 만들어내는지 V1과 비교하여 보여주세요.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 3: 후속 작업 프롬프트 -->
+        <div class="version-content" id="demo1-v3">
+            <div class="prompt-card open">
+                <div class="prompt-card-header" onclick="toggleCard(this)">
+                    <div class="prompt-card-header-left">
+                        <div class="prompt-step">1</div>
+                        <div>
+                            <div class="prompt-card-title">후속 작업 프롬프트</div>
+                            <div class="prompt-card-subtitle">생성된 엑셀 데이터를 활용한 추가 분석</div>
+                        </div>
+                    </div>
+                    <div class="prompt-toggle">▼</div>
+                </div>
+                <div class="prompt-card-body">
+                    <div class="prompt-description">
+                        💡 V1 또는 V2로 생성된 엑셀 파일이 열려있는 상태에서 후속 작업을 요청하는 프롬프트입니다.
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-box-label">프롬프트</div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            복사
+                        </button>
+                        <div class="prompt-text"><span class="prompt-section-title"># 작업</span>
+1. 열려있는 엑셀파일에서 새로 탭 페이지 만들어서 불량 원인별 피벗테이블 만들어줘
+2. 월간 품질 추이 차트 그려줘</div>
+                    </div>
+                    <div class="prompt-note">
+                        <span class="note-icon">📌</span>
+                        <span>시연 포인트: 이미 생성된 데이터를 기반으로 Claude가 피벗테이블과 차트를 자동 생성하는 과정을 보여주세요.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Demo 2: Claude in PowerPoint -->
